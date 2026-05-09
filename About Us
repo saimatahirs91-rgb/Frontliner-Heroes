@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>About Us</title>
+</head>
+<body>
+<h1>About Us</h1>
+<style>
+body {
+    color: gold;
+
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+h1, h2 {
+    color: black;
+}
+body {
+    background:
+    linear-gradient(rgba(255,255,255,0.6),
+    rgba(255,255,255,0.6)),
+    url("About Us.jpeg");
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    font-family: Arial, sans-serif;
+    color: black;
+    margin: 20px;
+}
+
+</style>
+
+<b><p>
+<h3>
+Hello and welcome to my website! I am <h3><b>Web Crafter</b></h3>, and I created the Frontliners Tribute Initiative and more to show appreciation and respect for frontliners around the world. This website was made with creativity, learning, and gratitude in mind.
+</h3>
+</p>
+
+<p>
+<h3>
+I believe frontliners are true heroes because they work hard every day to help, protect, and support people in society. Doctors, nurses, police officers, firefighters, teachers, cleaners, and many other essential workers make our communities safer and stronger.
+</h3>
+</p>
+
+<p>
+<h3>
+Creating this website also helped me learn more about web development, HTML, design, and creativity. I enjoy building websites and learning new technology skills while making meaningful projects.
+</h3>
+</p>
+
+<p>
+<h3>
+My goal is to create websites and projects that are both creative and helpful for people. I hope visitors enjoy this website and remember the importance of respecting and appreciating frontliners everywhere.
+</h3>
+</p></b>
+
+<p>
+<h2>
+Thank you for visiting my website and supporting the Frontliners Tribute Initiative!
+</h2>
+</p>
+</body>
+</html>
