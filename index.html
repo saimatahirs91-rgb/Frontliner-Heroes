@@ -173,8 +173,14 @@ from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
   // 🔐 LOGIN
   window.login = async function () {
+  try {
     await signInWithPopup(auth, provider);
+    alert("Logged in!");
+  } catch (error) {
+    console.log(error);
+    alert(error.message);
   }
+}
 
   // 💬 SEND COMMENT
   window.sendComment = async function () {
