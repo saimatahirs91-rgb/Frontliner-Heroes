@@ -201,21 +201,50 @@ from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
     document.getElementById("comment").value = "";
   }
+function timeAgo(timestamp) {
+  let seconds = Math.floor((Date.now() - timestamp) / 1000);
 
-  // 📡 LIVE COMMENTS
-  onSnapshot(collection(db, "comments"), (snapshot) => {
-    const box = document.getElementById("comments");
-    box.innerHTML = "";
+  let interval = seconds / 31536000;
+  if (interval > 1) return Math.floor(interval) + " years ago";
 
-    snapshot.forEach(doc => {
-      let data = doc.data();
+  interval = seconds / 2592000;
+  if (interval > 1) return Math.floor(interval) + " months ago";
 
-      box.innerHTML += `
-        <p><b>${data.name}</b>: ${data.comment}</p>
-      `;
-    });
+  interval = seconds / 86400;
+  if (interval > 1) return Math.floor(interval) + " days ago";
+
+  interval = seconds / 3600;
+  if (interval > 1) return Math.floor(interval) + " hours ago";
+
+  interval = seconds / 60;
+  if (interval > 1) return Math.floor(interval) + " minutes ago";
+
+  return "just now";
+}
+
+// 📡 LIVE COMMENTS
+onSnapshot(collection(db, "comments"), (snapshot) => {
+  const box = document.getElementById("comments");
+  box.innerHTML = "";
+
+  let comments = [];
+
+  snapshot.forEach(doc => {
+    comments.push(doc.data());
   });
 
+  // 🔥 NEWEST FIRST
+  comments.sort((a, b) => b.time - a.time);
+
+  comments.forEach(data => {
+    box.innerHTML += `
+      <p>
+        <b>${data.name}</b>: ${data.comment}<br>
+        <small>${timeAgo(data.time)}</small>
+      </p>
+    `;
+  });
+});
 </script>
 <a href="https://visitorbadge.io/status?path=%20https%3A%2F%2Fsaimatahirs91-rgb.github.io%2FFrontliner-Heroes%2F"><img src="https://api.visitorbadge.io/api/visitors?path=%20https%3A%2F%2Fsaimatahirs91-rgb.github.io%2FFrontliner-Heroes%2F&label=VISITORS&labelColor=%232ccce4&countColor=%232ccce4" /></a>
 <nav>
