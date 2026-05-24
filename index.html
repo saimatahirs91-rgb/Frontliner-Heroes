@@ -3,6 +3,52 @@
 <title>Frontliners Tribute Initiatives</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5540863437501614"
      crossorigin="anonymous"></script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT.appspot.com",
+    messagingSenderId: "XXXX",
+    appId: "XXXX"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Send comment
+  window.sendComment = async function () {
+    let name = document.getElementById("name").value;
+    let comment = document.getElementById("comment").value;
+
+    await addDoc(collection(db, "comments"), {
+      name: name,
+      comment: comment,
+      time: Date.now()
+    });
+
+    document.getElementById("comment").value = "";
+  }
+
+  // LIVE comments (real-time)
+  const commentBox = document.getElementById("comments");
+
+  onSnapshot(collection(db, "comments"), (snapshot) => {
+    commentBox.innerHTML = "";
+
+    snapshot.forEach(doc => {
+      let data = doc.data();
+
+      commentBox.innerHTML += `
+        <p><b>${data.name}</b>: ${data.comment}</p>
+      `;
+    });
+  });
+
+</script>
 <style>
 
 body {
@@ -105,19 +151,15 @@ communities during difficult situations.
 <p>
 Showing gratitude encourages frontliners and reminds communities about the importance of service and teamwork.
 </p>
+<input id="name" placeholder="Your name"><br>
+<textarea id="comment" placeholder="Write comment"></textarea><br>
 
+<button onclick="sendComment()">Post Comment</button>
+
+<h3>Live Comments</h3>
+<div id="comments"></div>
 <section id="Feedback" class="page">
-<h2>Feedback Form</h2>
 
-<form action="https://formsubmit.co/shayantahir1372@gmail.com" method="POST">
-
-  <input type="text" name="name" placeholder="Your Name" required><br><br>
-
-  <input type="email" name="email" placeholder="Your Email" required><br><br>
-
-  <textarea name="message" placeholder="Write your thank you message..." required></textarea><br><br>
-
-  <button type="submit">Send Message</button>
 <script>
 function setCookie(name, value, days) {
   let date = new Date();
