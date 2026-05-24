@@ -170,7 +170,9 @@ from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
-
+window.likeComment = async function(id) {
+  alert("Like system comes next step 👍");
+}
   // 🔐 LOGIN
   window.login = async function () {
   try {
@@ -193,12 +195,13 @@ from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
 
     let comment = document.getElementById("comment").value;
 
-    await addDoc(collection(db, "comments"), {
-      name: user.displayName,
-      comment: comment,
-      time: Date.now()
-    });
-
+   await addDoc(collection(db, "comments"), {
+  name: user.displayName,
+  photo: user.photoURL,
+  comment: comment,
+  time: Date.now(),
+  likes: 0
+});
     document.getElementById("comment").value = "";
   }
 function timeAgo(timestamp) {
@@ -236,14 +239,42 @@ onSnapshot(collection(db, "comments"), (snapshot) => {
   // 🔥 NEWEST FIRST
   comments.sort((a, b) => b.time - a.time);
 
-  comments.forEach(data => {
-    box.innerHTML += `
-      <p>
-        <b>${data.name}</b>: ${data.comment}<br>
-        <small>${timeAgo(data.time)}</small>
-      </p>
-    `;
-  });
+comments.forEach(data => {
+  box.innerHTML += `
+    <div style="
+      display:flex;
+      gap:10px;
+      margin-bottom:12px;
+      padding:10px;
+      border-radius:12px;
+      background:#f5f5f5;
+    ">
+
+      <img src="${data.photo || 'https://i.imgur.com/0y0y0y0.png'}"
+           width="40" height="40"
+           style="border-radius:50%; object-fit:cover;">
+
+      <div style="flex:1">
+
+        <b>${data.name}</b><br>
+
+        <p style="margin:5px 0;">
+          ${data.comment}
+        </p>
+
+        <small style="color:gray;">
+          ${timeAgo(data.time)}
+        </small>
+
+        <div style="margin-top:5px;">
+          ❤️ ${data.likes || 0}
+          <button onclick="likeComment('${data.id}')">Like</button>
+        </div>
+
+      </div>
+    </div>
+  `;
+});
 });
 </script>
 <a href="https://visitorbadge.io/status?path=%20https%3A%2F%2Fsaimatahirs91-rgb.github.io%2FFrontliner-Heroes%2F"><img src="https://api.visitorbadge.io/api/visitors?path=%20https%3A%2F%2Fsaimatahirs91-rgb.github.io%2FFrontliner-Heroes%2F&label=VISITORS&labelColor=%232ccce4&countColor=%232ccce4" /></a>
