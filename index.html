@@ -3,172 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frontliners Tribute Initiatives - Honoring Community Heroes</title>
+    <title>Frontliners Tribute Initiative</title>
+    <meta name="description" content="Discover inspiring stories, detailed articles, and community insights honoring the healthcare, security, and essential service heroes worldwide.">
+    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5540863437501614" crossorigin="anonymous"></script>
 
     <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #1a202c;
+            --text-muted: #4a5568;
+            --bg-light: #f7fafc;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
         body {
-            background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.7)), url("frontliner.jpeg");
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            font-family: Arial, sans-serif;
-            color: #222;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--secondary-color);
             margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    
-        .topic-centre {
-            text-align: center;
-        }
-        
-        .content-container {
-            max-width: 900px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95); /* Slightly less transparent for better readability */
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            box-sizing: border-box;
-            margin-top: 20px;
-        }
-
-        h1, h2, h3 {
-            color: #1a1a1a;
-        }
-
-        iframe {
-            display: block;
-            margin: 20px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        ul {
+            padding: 0;
             line-height: 1.6;
         }
 
-        .tribute-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-left: 5px solid #007bff;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 750px;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            box-sizing: border-box;
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        nav {
-            margin-top: 40px;
-            text-align: center;
-            font-weight: bold;
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
         nav a {
-            color: #007bff;
+            color: var(--secondary-color);
             text-decoration: none;
-            margin: 0 10px;
+            font-weight: 500;
+            margin-left: 20px;
+            font-size: 15px;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
+        }
+
+        /* FIXED: Added .hero-banner selector */
+        .hero-banner {
+            background: linear-gradient(135deg, #1a365d 0%, #2a4365 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero-banner h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+
+        .hero-banner p {
+            margin: 0;
+            font-size: 18px;
+            color: #90cdf4;
+        }
+
+        .main-layout {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav {
+                margin-top: 15px;
+            }
+        }
+
+        .content-section h2 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .article-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .article-card h3 {
+            margin: 0 0 10px 0;
+        }
+
+        .article-card h3 a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .article-card h3 a:hover {
+            color: var(--primary-color);
+        }
+
+        .meta-info {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .sidebar-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 25px;
+        }
+
+        .sidebar-card h4 {
+            margin: 0 0 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-list li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .sidebar-list a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .sidebar-list a:hover {
+            color: var(--primary-color);
         }
 
         footer {
+            background-color: var(--secondary-color);
+            color: #ffffff;
             text-align: center;
-            margin-top: 40px;
-            width: 100%;
+            padding: 30px 20px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        footer nav {
+            margin-bottom: 15px;
+        }
+
+        footer nav a {
+            color: #cbd5e0;
+            margin: 0 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="topic-centre">
-        <h1>Frontliners Tribute Initiative</h1>
-        <h2>Welcome to our appreciation website</h2>
-    </div>
-    <p style="text-align: center;">This website honours frontliners who work hard to protect and serve communities.</p>
-    
-    <div class="content-container">
-    
-        <hr style="border: 0; height: 1px; background: #ddd; margin: 20px 0;">
-
-        <h1 style="text-align: center;">Thank You Cards & Interactive Gallery</h1>
-        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTREz2CCIX0RPolV73PcIz6J0M1mZZQHcJiVi4F3CCl-VPaKrNB0phEVHubc8v7lBOAsBmVF6uJ6_u5/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="400" allowfullscreen></iframe>
-
-        <h2>What are Frontliners?</h2>
-        <p><b>Frontliners</b> are dedicated individuals who work on the front lines to protect, support, and serve the community during both daily life and challenging crises. They include healthcare workers, safety personnel, educators, and essential service providers who perform their duties with courage and a deep sense of responsibility. Their constant sacrifices keep society safe, healthy, and moving forward.</p>
-
-        <h2>Examples of Frontliners</h2>
-        <ul>
-            <li>Doctors and Nurses</li>
-            <li>Teachers and Educators</li>
-            <li>Police Officers and Firefighters</li>
-            <li>Ambulance and Emergency Medical Workers</li>
-            <li>Delivery and Sanitation Staff</li>
-        </ul>
-
-        <h2>🏥 Healthcare Frontliners</h2>
-        <p>Doctors, nurses, and medical staff are the backbone of public health. They treat patients, save lives, and maintain hospital operations around the clock, especially during medical emergencies and widespread health crises. Their roles demand continuous education, swift decision-making under intense pressure, and extreme emotional resilience.</p>
-
-        <h2>🚓 Safety and Security Frontliners</h2>
-        <p>Police officers, firefighters, and emergency medical technicians protect citizens from immediate danger. They respond rapidly to accidents, structural fires, and critical emergencies to keep neighborhoods secure. These individuals undergo rigorous physical and tactical training to manage highly unpredictable and hazardous environments daily.</p>
-
-        <h2>🚚 Essential Service Frontliners</h2>
-        <p>Delivery personnel, sanitation crews, and utility technicians keep communities running seamlessly. They ensure that fresh food, clean water, electricity, and critical logistics reach people without interruption. Without their logistical infrastructure, modern societal functions would come to an immediate halt during crises.</p>
-
-        <h2 style="text-align: center; margin-top: 40px;">🌟 Featured Frontliner Tributes</h2>
-
-        <div class="tribute-card">
-            <h3>The Dedication of Healthcare Heroes</h3>
-            <p>Medical professionals routinely face extended 12-to-24 hour shifts to monitor critical patients. Beyond their advanced technical knowledge, doctors and nurses provide emotional strength to families during stressful times, proving that empathy is just as vital as medicine.</p>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="/">Frontliners Tribute</a>
+            </div>
+            <nav>
+                <a href="https://saimatahirs91-rgb.github.io/">Home</a>
+                <a href="https://saimatahirs91-rgb.github.io/About-Us/">About Us</a>
+            </nav>
         </div>
+    </header>
 
-        <div class="tribute-card">
-            <h3>Community Educators Shaping the Future</h3>
-            <p>Teachers do far more than assign homework; they build the foundational logic and social values of the next generation. Adapting instantly to modern digital classrooms and community updates, educators ensure no student gets left behind.</p>
-        </div>
+    <section class="hero-banner">
+        <h1>Honoring Community & Global Heroes</h1>
+        <p>In-depth coverage, inspiring stories, and professional profiles of frontline service groups.</p>
+    </section>
 
-        <div class="tribute-card">
-            <h3>First Responders and Everyday Safety</h3>
-            <p>Firefighters and emergency response units maintain a constant state of readiness. Within minutes of a community alert, these individuals risk personal safety to stabilize environments, manage hazardous scenarios, and rescue those in need.</p>
-        </div>
+    <div class="main-layout">
+        
+        <main class="content-section">
+            <h2>Latest Educational Features</h2>
+            
+            <div class="article-grid">
+                
+                <article class="article-card">
+                    <div class="meta-info">Category: Healthcare Services</div>
+                    <h3>The Modern Evolution of Healthcare Infrastructure and Staffing</h3>
+                    <p>Modern healthcare systems rely on a combination of skilled medical professionals, advanced technology, and well-organized facilities to provide effective patient care. Doctors, nurses, and healthcare specialists work together to diagnose illnesses, deliver treatments, and respond to medical emergencies. As healthcare infrastructure continues to evolve, hospitals increasingly use digital records, modern diagnostic equipment, and specialized training programs to improve efficiency and patient outcomes. Explore how these developments help healthcare services meet the growing needs of communities while maintaining high standards of safety and care.</p>
+                </article>
 
-        <h2>Why Frontliners Matter</h2>
-        <p>Frontliners support society every day. Healthcare workers save lives, teachers educate future generations, and emergency workers protect communities during difficult situations. Their contributions form the foundational safety net of our modern global infrastructure.</p>
+                <article class="article-card">
+                    <div class="meta-info">Category: Emergency & Safety</div>
+                    <h3>First Responders: Managing Unpredictable Environments Safely</h3>
+                    <p>Tactical protocols, physical preparation, and instant system alerts keep emergency response units ready to react in minutes. Firefighters and police officers undergo regular training to prepare for emergencies such as fires, accidents, natural disasters, and public safety incidents. Modern communication systems help teams coordinate quickly, improving response times and protecting communities. Explore how these professionals use technology and teamwork to maintain public safety..</p>
+                </article>
 
-        <h2>How You Can Appreciate Frontliners</h2>
-        <ul>
-            <li>Write thank-you messages and share tribute art</li>
-            <li>Support local community programs and initiatives</li>
-            <li>Show everyday kindness, patience, and respect</li>
-            <li>Learn about their daily work and structural challenges</li>
-        </ul>
+                <article class="article-card">
+                    <div class="meta-info">Category: Education System</div>
+                    <h3>How Community Educators Are Transforming Digital Classrooms</h3>
+                    <p>Modern educators do far more than deliver lessons and manage classroom activities. As digital learning tools become more common, teachers adapt to new technologies, online platforms, and interactive teaching methods. They help students develop critical thinking, problem-solving, and digital literacy skills while supporting learning in both traditional and virtual environments. Explore how community educators continue to shape the future of education through innovation and dedication.</p>
+                </article>
 
-        <h2>Why Appreciation Matters</h2>
-        <p>Showing gratitude encourages frontliners and reminds communities about the importance of service and teamwork. Psychological studies indicate that public recognition directly combats burnout among emergency and healthcare professionals.</p>
-           
-        <div style="text-align: center; margin: 30px 0 10px 0;">
-            <a href="https://visitorbadge.io/status?path=%20https%3A%2F%2Fsaimatahirs91-rgb.github.io%2FFrontliner-Heroes%2F"><img src="https://api.visitorbadge.io/api/visitors?path=%20https%3A%2F%2Fsaimatahirs91-rgb.github.io%2FFrontliner-Heroes%2F&label=VISITORS&labelColor=%232ccce4&countColor=%232ccce4" alt="Visitor Badge" /></a>
-        </div>
+            </div>
+        </main>
 
-        <nav>
-            <a href="https://saimatahirs91-rgb.github.io/About-Us/">About Us</a> |
-            <a href="https://saimatahirs91-rgb.github.io/privacy-policy/">Privacy Policy</a> |
-            <a href="mailto:shayantahir1372@gmail.com">Contact Us</a>
-        </nav>
+        <aside class="sidebar-section">
+            
+            <div class="sidebar-card">
+                <h4>Essential Service Profiles</h4>
+                <ul class="sidebar-list">
+                    <li>🚚 Logistics & Delivery Infrastructure</li>
+                    <li>🧹 Public Sanitation and Utility Techs</li>
+                    <li>🚑 Ambulance and EMT Operations</li>
+                </ul>
+            </div>
+
+        </aside>
     </div>
 
     <footer>
-        <hr>
-        <p>© 2026 Frontliners Tribute Initiative</p>
+        <nav>
+            <a href="https://saimatahirs91-rgb.github.io/About-Us/">About Us</a> | 
+            <a href="https://saimatahirs91-rgb.github.io/privacy-policy/">Privacy Policy</a> | 
+            <a href="mailto:shayantahir1372@gmail.com">Contact Us</a>
+        </nav>
+        <p>© 2026 Frontliners Tribute Initiative. All Rights Reserved.</p>
     </footer>
 
 </body>
