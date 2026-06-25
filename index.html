@@ -6,6 +6,7 @@
     <title>Frontliners Tribute Initiative</title>
     <meta name="description" content="Discover inspiring stories, detailed articles, and community insights honoring the healthcare, security, and essential service heroes worldwide.">
     
+    <!-- AdSense Auto-Ads Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5540863437501614" crossorigin="anonymous"></script>
 
     <style>
@@ -65,7 +66,6 @@
             color: var(--primary-color);
         }
 
-        /* FIXED: Added .hero-banner selector */
         .hero-banner {
             background: linear-gradient(135deg, #1a365d 0%, #2a4365 100%);
             color: #ffffff;
@@ -131,9 +131,11 @@
             margin: 0 0 10px 0;
         }
 
+        /* Styling for the new clickable links inside the article cards */
         .article-card h3 a {
             color: var(--secondary-color);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         .article-card h3 a:hover {
@@ -154,6 +156,10 @@
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
         }
 
         .sidebar-card {
@@ -177,13 +183,14 @@
         }
 
         .sidebar-list li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-size: 14px;
         }
 
         .sidebar-list a {
             color: var(--secondary-color);
             text-decoration: none;
+            transition: color 0.1s ease;
         }
 
         .sidebar-list a:hover {
@@ -206,6 +213,12 @@
         footer nav a {
             color: #cbd5e0;
             margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        footer nav a:hover {
+            color: #ffffff;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -214,7 +227,7 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <a href="/">Frontliners Tribute</a>
+                <a href="https://saimatahirs91-rgb.github.io/">Frontliners Tribute</a>
             </div>
             <nav>
                 <a href="https://saimatahirs91-rgb.github.io/">Home</a>
@@ -235,22 +248,28 @@
             
             <div class="article-grid">
                 
+                <!-- Card 1 -->
                 <article class="article-card">
                     <div class="meta-info">Category: Healthcare Services</div>
-                    <h3>The Modern Evolution of Healthcare Infrastructure and Staffing</h3>
-                    <p>Modern healthcare systems rely on a combination of skilled medical professionals, advanced technology, and well-organized facilities to provide effective patient care. Doctors, nurses, and healthcare specialists work together to diagnose illnesses, deliver treatments, and respond to medical emergencies. As healthcare infrastructure continues to evolve, hospitals increasingly use digital records, modern diagnostic equipment, and specialized training programs to improve efficiency and patient outcomes. Explore how these developments help healthcare services meet the growing needs of communities while maintaining high standards of safety and care.</p>
+                    <h3><a href="https://saimatahirs91-rgb.github.io/healthcare-heroes/">The Modern Evolution of Healthcare Infrastructure and Staffing</a></h3>
+                    <p>Modern healthcare systems rely on a combination of skilled medical professionals, advanced technology, and well-organized facilities to provide effective patient care. Doctors, nurses, and healthcare specialists work together to diagnose illnesses, deliver treatments, and respond to medical emergencies...</p>
+                    <a href="https://saimatahirs91-rgb.github.io/healthcare-heroes/" class="read-more">Read Full Article →</a>
                 </article>
 
+                <!-- Card 2 -->
                 <article class="article-card">
                     <div class="meta-info">Category: Emergency & Safety</div>
-                    <h3>First Responders: Managing Unpredictable Environments Safely</h3>
-                    <p>Tactical protocols, physical preparation, and instant system alerts keep emergency response units ready to react in minutes. Firefighters and police officers undergo regular training to prepare for emergencies such as fires, accidents, natural disasters, and public safety incidents. Modern communication systems help teams coordinate quickly, improving response times and protecting communities. Explore how these professionals use technology and teamwork to maintain public safety..</p>
+                    <h3><a href="https://saimatahirs91-rgb.github.io/emergency-responders/">First Responders: Managing Unpredictable Environments Safely</a></h3>
+                    <p>Tactical protocols, physical preparation, and instant system alerts keep emergency response units ready to react in minutes. Firefighters and police officers undergo regular training to prepare for emergencies such as fires, accidents, natural disasters, and public safety incidents...</p>
+                    <a href="https://saimatahirs91-rgb.github.io/emergency-responders/" class="read-more">Read Full Article →</a>
                 </article>
 
+                <!-- Card 3 -->
                 <article class="article-card">
                     <div class="meta-info">Category: Education System</div>
-                    <h3>How Community Educators Are Transforming Digital Classrooms</h3>
-                    <p>Modern educators do far more than deliver lessons and manage classroom activities. As digital learning tools become more common, teachers adapt to new technologies, online platforms, and interactive teaching methods. They help students develop critical thinking, problem-solving, and digital literacy skills while supporting learning in both traditional and virtual environments. Explore how community educators continue to shape the future of education through innovation and dedication.</p>
+                    <h3><a href="https://saimatahirs91-rgb.github.io/educators-future/">How Community Educators Are Transforming Digital Classrooms</a></h3>
+                    <p>Modern educators do far more than deliver lessons and manage classroom activities. As digital learning tools become more common, teachers adapt to new technologies, online platforms, and interactive teaching methods. They help students develop critical thinking and problem-solving skills...</p>
+                    <a href="https://saimatahirs91-rgb.github.io/educators-future/" class="read-more">Read Full Article →</a>
                 </article>
 
             </div>
@@ -261,9 +280,9 @@
             <div class="sidebar-card">
                 <h4>Essential Service Profiles</h4>
                 <ul class="sidebar-list">
-                    <li>🚚 Logistics & Delivery Infrastructure</li>
-                    <li>🧹 Public Sanitation and Utility Techs</li>
-                    <li>🚑 Ambulance and EMT Operations</li>
+                    <li><a href="logistics-infrastructure.html">🚚 Logistics & Delivery Infrastructure</a></li>
+                    <li><a href="public-sanitation.html">🧹 Public Sanitation and Utility Techs</a></li>
+                    <li><a href="ambulance-operations.html">🚑 Ambulance and EMT Operations</a></li>
                 </ul>
             </div>
 
